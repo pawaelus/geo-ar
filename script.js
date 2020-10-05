@@ -57,10 +57,6 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((places) => {
                 console.info(places)
-
-
-
-                // const icon = document.createElement('a-image');
                 places.forEach((place) => {
                     const latitude = place.lat;
                     const longitude = place.lon;
