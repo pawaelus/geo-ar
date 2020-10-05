@@ -1,18 +1,36 @@
 // getting places from APIs
 // function loadPlaces(position) {
 function loadPlaces(position) {
+    // const params = {
+    //     radius: 300,    // search places not farther than this value (in meters)
+    //     clientId: '<YOUR-CLIENT-ID>',
+    //     clientSecret: 'YOUR-CLIENT-SECRET',
+    //     version: '20300101',    // foursquare versioning, required but unuseful for this demo
+    // };
 
+    // CORS Proxy to avoid CORS problems
     const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
+    // Foursquare API (limit param: number of maximum places to fetch)
+    // const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
+    //     &ll=${position.latitude},${position.longitude}
+    //     &radius=${params.radius}
+    //     &client_id=${params.clientId}
+    //     &client_secret=${params.clientSecret}
+    //     &limit=30 
+    //     &v=${params.version}`;
     //way["shop"](43.46669501043081,-5.708215989569187,43.588927989569186,-5.605835010430813)->.a1;foreach.a1(convert node ::=::, ::geom = geom(),::id = id(), tileId = 0;out geom;)
     
     var x1 = position.latitude - 0.01 
     var y1 = position.longitude- 0.01 
     var x2 = position.latitude + 0.01 
     var y2 = position.longitude + 0.01 
+
     
     const endpoint = 'https://www.overpass-api.de/api/interpreter?data=[out:json];node["shop"](' + x1 + ','+ y1 +',' + x2 + ',' + y2+ ');out%20meta;';
     console.log(endpoint)
+
+
 
     return fetch(endpoint)
         .then((res) => {
@@ -39,10 +57,11 @@ window.onload = () => {
         loadPlaces(position.coords)
             .then((places) => {
                 console.info(places)
+                // const icon = document.createElement('a-image');
                 places.forEach((place) => {
-                    const latitude = place.lat;
-                    const longitude = place.lon;
-                    const info =  JSON.stringify(place.tags);
+                    // const latitude = place.lat;
+                    // const longitude = place.lon;
+                    // const info =  JSON.stringify(place.tags);
                     console.info(latitude, longitude)
                     console.log(place)
                     console.log( JSON.stringify(place.tags))
@@ -55,19 +74,17 @@ window.onload = () => {
                     placeText.setAttribute('titleColor', 'black');
                     placeText.setAttribute('look-at', '[gps-camera]');
                     placeText.setAttribute('scale', '10 10 10');
+                    placeText.setAttribute('clickhandler');
 
                     // placeText.setAttribute('backgroundColor', 'green');
                     // placeText.setAttribute('borderColer', 'yellow');
               
                     // placeText.setAttribute('title', placeText.getAttribute('distanceMsg'));
                     placeText.addEventListener('loaded', () => {
-                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+                        window.dispatchEvent(new CustomEvent('gps-entity-place-loaded') , { detail: { component: this.el }})
                     });
 
-                    placeText.addEventListener('click', () => {
-                        alert('lol')
-                    });
-
+                    
                     const clickListener = function (ev) {
                         ev.stopPropagation();
                         ev.preventDefault();
