@@ -1,24 +1,9 @@
 // getting places from APIs
 // function loadPlaces(position) {
 function loadPlaces(position) {
-    // const params = {
-    //     radius: 300,    // search places not farther than this value (in meters)
-    //     clientId: '<YOUR-CLIENT-ID>',
-    //     clientSecret: 'YOUR-CLIENT-SECRET',
-    //     version: '20300101',    // foursquare versioning, required but unuseful for this demo
-    // };
 
-    // CORS Proxy to avoid CORS problems
     const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
-    // Foursquare API (limit param: number of maximum places to fetch)
-    // const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
-    //     &ll=${position.latitude},${position.longitude}
-    //     &radius=${params.radius}
-    //     &client_id=${params.clientId}
-    //     &client_secret=${params.clientSecret}
-    //     &limit=30 
-    //     &v=${params.version}`;
     //way["shop"](43.46669501043081,-5.708215989569187,43.588927989569186,-5.605835010430813)->.a1;foreach.a1(convert node ::=::, ::geom = geom(),::id = id(), tileId = 0;out geom;)
     
     var x1 = position.latitude - 0.01 
