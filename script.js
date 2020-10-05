@@ -10,12 +10,9 @@ function loadPlaces(position) {
     var y1 = position.longitude- 0.01 
     var x2 = position.latitude + 0.01 
     var y2 = position.longitude + 0.01 
-
     
     const endpoint = 'https://www.overpass-api.de/api/interpreter?data=[out:json];node["shop"](' + x1 + ','+ y1 +',' + x2 + ',' + y2+ ');out%20meta;';
     console.log(endpoint)
-
-
 
     return fetch(endpoint)
         .then((res) => {
