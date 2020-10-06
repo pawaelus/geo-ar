@@ -59,23 +59,26 @@ window.onload = () => {
                 console.info(places)
                 // const icon = document.createElement('a-image');
                 places.forEach((place) => {
-                    // const latitude = place.lat;
-                    // const longitude = place.lon;
-                    // const info =  JSON.stringify(place.tags);
-                    console.info(latitude, longitude)
-                    console.log(place)
-                    console.log( JSON.stringify(place.tags))
+                    const latitude = place.lat;
+                    const longitude = place.lon;
+                    const info =  JSON.stringify(place.tags);
+                    // console.info(latitude, longitude)
+                    // console.log(place)
+                    // console.log( JSON.stringify(place.tags))
                     // add place name
-                    const placeText = document.createElement('a-link');
-
+                    const placeText = document.createElement('a-circle');
+                    // placeText.setAttribute('rotation', '-90 0 0')
                     // placeText.setAttribute('src', '../assets/map-marker.png');
                     placeText.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
                     placeText.setAttribute('title', place.tags.name );
                     placeText.setAttribute('titleColor', 'black');
                     placeText.setAttribute('look-at', '[gps-camera]');
                     placeText.setAttribute('scale', '10 10 10');
-                    placeText.setAttribute('clickhandler');
+                    placeText.setAttribute('clickhandler','');
+                    placeText.setAttribute('contentText', info);
+                    
 
+                    console.info(placeText.getAttributeNames())
                     // placeText.setAttribute('backgroundColor', 'green');
                     // placeText.setAttribute('borderColer', 'yellow');
               
