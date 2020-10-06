@@ -9,15 +9,16 @@
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <style>
         p.relative {
-        position: absolute;
-        top: 0%;
-        left: 5%;
-        width: 50%;
-        height: 20%;
-        z-index: 999;
-        font-family: "Lucida Console", Courier, monospace;
-        font-size: 12px;
-        color: blanchedalmond;
+            position: absolute;
+            top: 0%;
+            left: 5%;
+            width: 50%;
+            height: 20%;
+            z-index: 999;
+            font-family: "Lucida Console", Courier, monospace;
+            font-size: 12px;
+            color: white;
+            text-shadow: black 0.2em 0.2em 0.2em;
         } 
 
      
@@ -25,12 +26,9 @@
     </style>
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
-  
-
-
       
         AFRAME.registerComponent('clickhandler', {
-        init: function() {
+        init: function() {/*  */
             this.el.addEventListener('click', () => {
                 var info = this.el.getAttribute('distancemsg') 
                 + "<br />"+ this.el.getAttribute('title') + "<br />";
@@ -43,7 +41,7 @@
                 }
                 }
                 // use it somewhere else, sory
-                
+
                 // var i = 0;
                 // var txt = info;
                 // var speed = 5;
@@ -72,10 +70,10 @@
         vr-mode-ui="enabled: false"
 		embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
-        
+      
         <a-camera gps-camera rotation-reader>
             <a-cursor></a-cursor>
         </a-camera>
-        
-	</a-scene>
+       
+    </a-scene>
 </body>

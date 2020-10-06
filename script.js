@@ -28,7 +28,7 @@ function loadPlaces(position) {
 
     
     const endpoint = 'https://www.overpass-api.de/api/interpreter?data=[out:json];node["shop"](' + x1 + ','+ y1 +',' + x2 + ',' + y2+ ');out%20meta;';
-    console.log(endpoint)
+     console.log(endpoint)
 
 
 
@@ -77,7 +77,6 @@ window.onload = () => {
                     placeText.setAttribute('clickhandler','');
                     placeText.setAttribute('contentText', info);
                     
-
                     console.info(placeText.getAttributeNames())
                     // placeText.setAttribute('backgroundColor', 'green');
                     // placeText.setAttribute('borderColer', 'yellow');
