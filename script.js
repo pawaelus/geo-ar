@@ -82,6 +82,7 @@ window.onload = () => {
                     console.info('test')
 
                     console.info('test2')
+                    console.info('test2')
                     // placeText.setAttribute('backgroundColor', 'green');
                     // placeText.setAttribute('borderColer', 'yellow');
               
