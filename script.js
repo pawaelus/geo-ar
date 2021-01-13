@@ -83,6 +83,8 @@ window.onload = () => {
 
                     console.log('funny log')
 
+                    console.warn('not funny')
+                    console.warn('funny again')
                     // placeText.setAttribute('backgroundColor', 'green');
                     // placeText.setAttribute('borderColer', 'yellow');
               
